@@ -46,7 +46,7 @@ dfs(root)
 
 ## что может пригодиться:    
 1. создание дерева (must have) попробуй написать: CRUD с иерархическим каталогом или json/xml parser
-2. dfs (must have)
+2. dfs (must have) + stack для текущ пути
 3. bfs (must have)
 4. получить ноды по уровням (bfs) (must have)
 5. nested set (нужно знать даже битриксоидам)
