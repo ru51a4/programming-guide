@@ -70,7 +70,9 @@ let dfs = (node) => {
     stack.push(node.title)
     console.log(stack.join("->"))
     node.childs.forEach((item) => {
+        //сейчас провалимся
         dfs(item)
+        //всплыли
     });
     stack.pop();
 }
