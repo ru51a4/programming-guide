@@ -67,14 +67,17 @@ for (let i = 1; i <= catalog.length - 1; i++) {
 }
 let stack = [];
 let dfs = (node) => {
+    //1
     stack.push(node.title)
     console.log(stack.join("->"))
     node.childs.forEach((item) => {
-        //сейчас провалимся
+        //сейчас провалимся -> goto 1
         dfs(item)
+        //2
         //всплыли
     });
     stack.pop();
+    //goto 2
 }
 dfs(root)
 ```
