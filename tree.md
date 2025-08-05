@@ -71,11 +71,11 @@ let dfs = (node) => {
     stack.push(node.title)
     console.log(stack.join("->"))
     node.childs.forEach((item) => {
-        dfs(item) //goto 1
+        dfs(item) //goto 1, уровня ниже
         //2
     });
     stack.pop();
-    //goto 2
+    //goto 2, уровня выше
 }
 dfs(root)
 ```
