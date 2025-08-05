@@ -71,8 +71,8 @@ let dfs = (node) => {
     stack.push(node.title)
     console.log(stack.join("->"))
     node.childs.forEach((item) => {
-        //сейчас провалимся -> goto 1
-        dfs(item)
+        //сейчас провалимся
+        dfs(item) //goto 1
         //2
         //всплыли
     });
