@@ -29,17 +29,50 @@ deep first search и Breadth First Search
 
 дерево выглядит так
 ```
-let root = { val: 'Бабушка', childs: [] }
-let mom = { val: 'Мама', childs: [] }
-let _child = { val: 'Руслан', childs: [] }
-root.childs.push(mom)
-mom.childs.push(_child);
-
+let catalog = [
+    {
+        id: 1,
+        title: 'Каталог',
+        parent_id: null,
+        childs: [],
+    },
+    {
+        id: 2,
+        title: 'Туфли',
+        parent_id: 1,
+        childs: [],
+    },
+    {
+        id: 3,
+        title: 'Мужские туфли',
+        parent_id: 2,
+        childs: [],
+    },
+    {
+        id: 4,
+        title: 'Женские туфли',
+        parent_id: 2,
+        childs: [],
+    },
+    {
+        id: 5,
+        title: 'Футболки',
+        parent_id: 1,
+        childs: [],
+    },
+]
+let root = catalog[0];
+for (let i = 1; i <= catalog.length - 1; i++) {
+    catalog.find((c) => c.id == catalog[i].parent_id).childs.push(catalog[i]);
+}
+let stack = [];
 let dfs = (node) => {
-    console.log(node.val)
+    stack.push(node.title)
+    console.log(stack.join("->"))
     node.childs.forEach((item) => {
         dfs(item)
     });
+    stack.pop();
 }
 dfs(root)
 ```
