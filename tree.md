@@ -27,7 +27,7 @@ deep first search и Breadth First Search
 
 там дальше разберешься. в основом все алгоритмы это как раз дфс и бфс с доп логикой.
 
-дерево выглядит так
+bds/dfs выглядит так
 ```js
 let catalog = [
     {
@@ -78,7 +78,23 @@ let dfs = (node) => {
     //goto 2, уровня выше
 }
 dfs(root)
+
+//bfs:
+let bfs = (root_node) => {
+  let queue = [root_node];
+  while(queue.length) {
+    let node = queue.shift();
+    console.log(node.title); 
+    queue.push(...node.childs)
+  }
+}
+bfs(root);
 ```
+dfs:
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/3ace1705-31d4-4a6a-a75b-ccd3fa09a9d3" />
+bfs:
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ed0d773b-583c-40c9-baa3-3d1cd3b71c6c" />
+
 
 ## что может пригодиться:    
 1. создание дерева (must have) попробуй написать: CRUD с иерархическим каталогом или json/xml parser
