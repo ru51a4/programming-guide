@@ -27,7 +27,7 @@ deep first search и Breadth First Search
 
 там дальше разберешься. в основом все алгоритмы это как раз дфс и бфс с доп логикой.
 
-bds/dfs выглядит так
+bfs/dfs выглядит так
 ```js
 let catalog = [
     {
