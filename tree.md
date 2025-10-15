@@ -80,30 +80,33 @@ let dfs = (node) => {
 dfs(root)
 
 //bfs:
+
 let bfs = (root_node) => {
   let queue = [root_node];
-  while(queue.length) {
+  while (queue.length) {
     let node = queue.shift();
-    console.log(node.title); 
+    console.log(node.title);
     queue.push(...node.childs)
   }
 }
-bfs(root);
-```
-dfs:
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/3ace1705-31d4-4a6a-a75b-ccd3fa09a9d3" />
-bfs:
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ed0d773b-583c-40c9-baa3-3d1cd3b71c6c" />
 
+bfs(root);
+
+```
+dfs:  
+https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif  
+  
+bfs:  
+https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif  
 
 ## что может пригодиться:    
 1. создание дерева (must have) попробуй написать: CRUD с иерархическим каталогом или json/xml parser
 2. dfs (must have) + stack для текущ пути
 3. bfs (must have)
-4. получить ноды по уровням (bfs) (must have)
-5. nested set (нужно знать даже битриксоидам)
-6. bst
-7. trie
-8. dijkstra (что бы сдать лабу)
-9. topological sort
+4. получить ноды по уровням (bfs) (must have) используется например чтобы собрать меню в вайлдберриз
+5. nested set - нужен даже в крудах - (используется даже в БУС)
+6. bst - в крудах не нужен. но нужно для понимания более сложных структур. 
+7. trie - отлично подойдет если будете делать движок для кроссвордов.
+8. dijkstra (что бы сдать лабу, ну или если захотите написать рогалик)
+9. topological sort 
 10. etc...
