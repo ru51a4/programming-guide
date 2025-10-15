@@ -110,3 +110,8 @@ https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorit
 8. dijkstra (что бы сдать лабу, ну или если захотите написать рогалик)
 9. topological sort 
 10. etc...
+
+## рекурсивный спуск:  
+нужен везде и всюду, например:   
+интерпретатор: - https://github.com/ru51a4/arithmetic-expression-cpp  
+генерация строк: - https://github.com/ru51a4/string_shuffle  
