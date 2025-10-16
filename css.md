@@ -30,4 +30,4 @@ css float'ы тоже не нужны.
 верстать без бутстрапа тоже не нужно.  
   
 extra:  
-тренажер по свойстваем display:flex; - https://flexboxfroggy.com/
+тренажер по свойствам display:flex; - https://flexboxfroggy.com/
