@@ -12,12 +12,13 @@
 ## hasMany - подробнее:  
 читать - https://laravel.demiart.ru/many-to-many-relationship/  
 кратко: тут нужно создать дополнительную таблицу связки - например user и offices - в 1 офисе много людей, один человек может работать сразу в нескольких офисах. создаем user_office - где будет 2 поля user_id, office_id.  
+---
 
 
 
 у одной сущности могут быть несколько отношения. например:  
 сущность topic - у нее belongsTo с user и belongsTo с messages.  
-
+---
 
 
 что нужно знать по мимо работы с ElequentORM :  
