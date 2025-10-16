@@ -9,7 +9,7 @@
 ## hasMany - подробнее:  
 читать - https://laravel.demiart.ru/one-to-many-relationship/  
 кратко: тоже самое что и у hasOne - только предпологается что в зависимой таблице будет несколько записей, например - user и messages. у одного пользователя много сообщений. т.е у messages поле user_id  
-## hasMany - подробнее:  
+## belongsToMany - подробнее:  
 читать - https://laravel.demiart.ru/many-to-many-relationship/  
 кратко: тут нужно создать дополнительную таблицу связки - например user и offices - в 1 офисе много людей, один человек может работать сразу в нескольких офисах. создаем user_office - где будет 2 поля user_id, office_id.  
 
