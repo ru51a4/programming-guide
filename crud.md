@@ -18,7 +18,7 @@
 
 
 у одной сущности могут быть несколько отношений. например:  
-сущность topic - у нее belongsTo с user и belongsTo с messages.  
+сущность topic - у нее belongsTo с user и hasMany с messages.  
 
 ---
 
