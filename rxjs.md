@@ -7,16 +7,20 @@ class store {
         this.notificateObservable = new Subject<any>();
     }
 }
+
 window.store = new store();
 
-class componentDashboard {
-    constructor(){
-        window.store.notificateObservable.subscribe(() => {
-            window.notificater("Update");
-        })
-    }
+class componentChat {
     formSubmit() {
         window.store.notificateObservable.next(true);
+    }
+}
+
+class componentLayout(){
+    constructor(){
+        window.store.notificateObservable.subscribe(() => {
+            window.notificater("Сообщение отправлено");
+        })
     }
 }
 ```
