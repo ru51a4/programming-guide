@@ -6,7 +6,7 @@
 
 vuejs это всего лишь - xml parser + dfs + innerHTML.  
 
-!('')[https://sun9-50.userapi.com/s/v1/if2/1o3wpvUw5vrmva4Cp90-GR1w9wlW4q5TPWSOVP13jcQbRtBSB6DV1pL76eY2166ghHP-6JYxRQFXtXmqPGgiT1lb.jpg?quality=95&as=32x25,48x37,72x55,108x83,160x123,230x177&from=bu&cs=230x0]  
+<img width="230" height="177" alt="image" src="https://github.com/user-attachments/assets/1bfeaa65-2df2-4e52-9d13-9565d2a88f88" />
 rrender состоит из 4 сущностей
 
 
