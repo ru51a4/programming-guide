@@ -102,4 +102,30 @@ let main = async () => {
 тут весь скрипт зависнет и будет ждать хттп запрос.  
   
 Промисы можно создавать самим; читать подробнее https://learn.javascript.ru/promise-basics
-
+---
+Что такое callback?
+    
+это функция которую можно передать аргументом.  
+например:  
+```js
+let stack = [];
+superxmlparser74.parse(str,
+    (item) => {
+        //opentag
+        let el = new dom_node();
+        el.attr = item.attr;
+        el.tag = item.tag;
+        stack[stack.length - 1].childrens.push(el)
+        stack.push(el);
+    },
+    (item) => {
+        //innertext
+        if (stack[stack.length - 1]) {
+            stack[stack.length - 1].innerTEXT += item.value;
+        }
+    },
+    (item) => {
+        //closedtag
+        stack.pop();
+    });
+```
