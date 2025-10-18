@@ -1,14 +1,11 @@
 ## rrender aka another reactjs clon
 
----
-
-Я не осилил клон vuejs (commit_url), потом осилил клон beautifulsoup (habr link), написал много велосипедов и наконец осилил клон vuejs (rrender).  
-
 vuejs это всего лишь - xml parser + dfs + innerHTML.  
-
-!('')[https://sun9-50.userapi.com/s/v1/if2/1o3wpvUw5vrmva4Cp90-GR1w9wlW4q5TPWSOVP13jcQbRtBSB6DV1pL76eY2166ghHP-6JYxRQFXtXmqPGgiT1lb.jpg?quality=95&as=32x25,48x37,72x55,108x83,160x123,230x177&from=bu&cs=230x0]  
+<div align="center">
+<img width="230" height="177" alt="image" src="https://github.com/user-attachments/assets/1bfeaa65-2df2-4e52-9d13-9565d2a88f88" />  
+  
 rrender состоит из 4 сущностей
-
+</div>
 
 Наш rrender поддерживает следующие директивы:  
 ```
@@ -20,6 +17,7 @@ r-bind
 r-bind.attr
 + жизненный цикл (init/destroy)
 ```
+---
 
 Итак нам нужно получить исходный хтмл (с компонентами), расскрыть хтмл компонентов, построить из них vdom, сравнить с предыдущим vdom и сделать вставки в страницу.  
 
@@ -118,7 +116,9 @@ class component_todo extends component {
 }
 ```
 Функция body обрабатывается сущностью (template.js). Она раскрывает наши аттрибуты (r-click, r-mouse) в понятный браузеру api (onclick, onmouse), а так же раскрывает r-bind, получая данные из state компонента или его методов.  
+  
 (template.js - просто парсит исходный html, обходит его, - конкатенируя правильно).  
+  
 После сборки строки хтмл, мы строим vdom (dombuilder.js) моим парсером (superxmlparser74.js), если это первый rerender вызовем сборку хтмл из vdom и вставим в корень .main  
 ```js
 this.vdom = domBuilder.build(currentDom);
@@ -211,7 +211,8 @@ if (JSON.stringify(q1) !== JSON.stringify(q2)) {
 	//Если элементы не равны, обновим их родителя(да, в vuejs(link github), чуть сложнее, но у нас так)
 }
 ```
-(link github)[https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff]
+[link github](https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff)
+  
 Для того что бы сравнить vdom и с реальным dom, на моменте создания vdom (dombuilder.js) для каждого тега посчитаем numChuild (номер элемента в доме), теперь достаточно пройти из корня по numChild, и мы найдем нужный элемент в real dom  
 ```js
 //render.js - 257 строчка
