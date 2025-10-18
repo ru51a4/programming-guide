@@ -27,7 +27,8 @@ next(root)
 ```js
 let clone = JSON.parse(JSON.stringify(object))
 ```
-  
+---
+
 кароче есть деревья в деревьях есть:
 deep first search и Breadth First Search
 загугли... 
