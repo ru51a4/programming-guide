@@ -77,7 +77,8 @@ globalFetch() {
 
 ---
 
-вообще это просто паттерн Observable - кстати он еще используется в api websocket'ах: делаем "next" на бекенде - слушаем "subscribe" на фронтенде
+вообще это просто паттерн Observable  
+кстати он еще используется в api websocket'ах: делаем "next" на бекенде - слушаем "subscribe" на фронтенде
  
 ## extra:  
 а что такое Promise?
