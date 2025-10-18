@@ -1,11 +1,11 @@
 ## rrender aka another reactjs clon
 
 vuejs это всего лишь - xml parser + dfs + innerHTML.  
-<p align=center>
+<center>
 <img width="230" height="177" alt="image" src="https://github.com/user-attachments/assets/1bfeaa65-2df2-4e52-9d13-9565d2a88f88" />  
   
 rrender состоит из 4 сущностей
-</p>
+</center>
 
 Наш rrender поддерживает следующие директивы:  
 ```
