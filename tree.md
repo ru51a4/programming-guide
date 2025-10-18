@@ -103,12 +103,12 @@ bfs(root);
 ```
 <details>
 <summary>dfs:</summary>  
-![](https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif)  
+<img alt="image" src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif" />
 </details>
   
 <details>
 <summary>bfs:</summary>  
-![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif)
+<img alt="image" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif" />
 </details>
 
 ## что может пригодиться:    
