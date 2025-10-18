@@ -101,12 +101,13 @@ let bfs = (root_node) => {
 bfs(root);
 
 ```
+  
 dfs:  
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d613fd93-ebb5-4e1e-8b8c-6149c9b48e8c" />
+![](https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif)  
   
 bfs:  
-https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif  
-
+![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif)
+  
 ## что может пригодиться:    
 1. создание дерева (must have) попробуй написать: CRUD с иерархическим каталогом или json/xml parser
 2. dfs (must have) + stack для текущ пути
