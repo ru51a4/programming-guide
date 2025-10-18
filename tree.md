@@ -102,7 +102,7 @@ bfs(root);
 
 ```
 dfs:  
-https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif  
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d613fd93-ebb5-4e1e-8b8c-6149c9b48e8c" />
   
 bfs:  
 https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif  
