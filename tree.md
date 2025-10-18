@@ -21,6 +21,12 @@ let next = (node) => {
 }
 next(root)
 ```
+  
+обьекты можно клонировать(это нужно например когда хочется посчитать изменения ну и вообще много кейсов). в js например это делается так:
+```js
+let clone = JSON.parse(JSON.stringify(object))
+```
+  
 кароче есть деревья в деревьях есть:
 deep first search и Breadth First Search
 загугли... 
