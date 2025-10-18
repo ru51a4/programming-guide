@@ -116,7 +116,9 @@ class component_todo extends component {
 }
 ```
 Функция body обрабатывается сущностью (template.js). Она раскрывает наши аттрибуты (r-click, r-mouse) в понятный браузеру api (onclick, onmouse), а так же раскрывает r-bind, получая данные из state компонента или его методов.  
+  
 (template.js - просто парсит исходный html, обходит его, - конкатенируя правильно).  
+  
 После сборки строки хтмл, мы строим vdom (dombuilder.js) моим парсером (superxmlparser74.js), если это первый rerender вызовем сборку хтмл из vdom и вставим в корень .main  
 ```js
 this.vdom = domBuilder.build(currentDom);
