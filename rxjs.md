@@ -110,6 +110,11 @@ let main = async () => {
 это функция которую можно передать аргументом.  
 например:  
 ```js
+/*
+class superxmlparser74 {
+    static parse(str, cbOpenTag, cbInnerText, cbClosedTag, cbSelfOpenTag = () => {})
+}
+*/
 let stack = [];
 superxmlparser74.parse(str,
     (item) => {
