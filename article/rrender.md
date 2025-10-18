@@ -211,7 +211,7 @@ if (JSON.stringify(q1) !== JSON.stringify(q2)) {
 	//Если элементы не равны, обновим их родителя(да, в vuejs(link github), чуть сложнее, но у нас так)
 }
 ```
-('link github')[https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff]
+['link github(https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff)
 Для того что бы сравнить vdom и с реальным dom, на моменте создания vdom (dombuilder.js) для каждого тега посчитаем numChuild (номер элемента в доме), теперь достаточно пройти из корня по numChild, и мы найдем нужный элемент в real dom  
 ```js
 //render.js - 257 строчка
