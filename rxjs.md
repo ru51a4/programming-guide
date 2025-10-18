@@ -65,7 +65,7 @@ globalFetch() {
       return _await
     }
 
-    window.http.getData.subscribe((fetchData) => {
+    window.http.getData().subscribe((fetchData) => {
         this.slugs.next(fetchData)
         _await.next(true)
     });
