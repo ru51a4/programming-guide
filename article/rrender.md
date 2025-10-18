@@ -1,13 +1,11 @@
 ## rrender aka another reactjs clon
 
 vuejs это всего лишь - xml parser + dfs + innerHTML.  
-
----
-
+<p align=center>
 <img width="230" height="177" alt="image" src="https://github.com/user-attachments/assets/1bfeaa65-2df2-4e52-9d13-9565d2a88f88" />  
   
 rrender состоит из 4 сущностей
-
+</p>
 
 Наш rrender поддерживает следующие директивы:  
 ```
@@ -19,6 +17,7 @@ r-bind
 r-bind.attr
 + жизненный цикл (init/destroy)
 ```
+---
 
 Итак нам нужно получить исходный хтмл (с компонентами), расскрыть хтмл компонентов, построить из них vdom, сравнить с предыдущим vdom и сделать вставки в страницу.  
 
