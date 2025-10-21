@@ -107,12 +107,16 @@ let main = async () => {
 
 Что такое callback?
     
-это функция которую можно передать аргументом.  
+это функция которую можно передать аргументом. или точнее функция в переменной.
 например:  
 ```js
 /*
 class superxmlparser74 {
-    static parse(str, cbOpenTag, cbInnerText, cbClosedTag, cbSelfOpenTag = () => {})
+    static parse(str, cbOpenTag, cbInnerText, cbClosedTag, cbSelfOpenTag = () => {}){
+        ...
+        cbOpenTag({tag:"div"})
+        ...
+    }
 }
 */
 let stack = [];
