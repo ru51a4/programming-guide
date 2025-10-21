@@ -24,6 +24,17 @@ r-bind.attr
 Не забудем про жизненный цикл и ререндер при действиях пользователя.  
 
 Инициализация фраеймворка выглядит так:  
+```html
+<html>
+<script src="https://cdn.jsdelivr.net/gh/ru51a4/rrender/dist/rrender.js"></script>
+<body>
+    <div class="main">
+        <hello />
+    </div>
+</body>
+```
+---
+
 ```js
 class component_hello extends component {
     state = {
@@ -46,15 +57,7 @@ class component_hello extends component {
 }
 ```
 
-```html
-<html>
-<script src="https://cdn.jsdelivr.net/gh/ru51a4/rrender/dist/rrender.js"></script>
-<body>
-    <div class="main">
-        <hello />
-    </div>
-</body>
-```
+---
 
 ```js
 var components = [
