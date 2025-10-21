@@ -103,6 +103,9 @@ let main = async () => {
   
 Промисы можно создавать самим; читать подробнее https://learn.javascript.ru/promise-basics
 
+Чем promise отличается от observale?   
+promise выполнится только 1 раз в resolve. в observable можно передать в next() сколько угодно.  
+
 ---
 
 Что такое callback?
