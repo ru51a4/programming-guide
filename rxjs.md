@@ -114,7 +114,7 @@ let main = async () => {
 class superxmlparser74 {
     static parse(str, cbOpenTag, cbInnerText, cbClosedTag, cbSelfOpenTag = () => {}){
         ...
-        cbOpenTag({tag:"div"})
+        cbOpenTag({tag:"div", attr: []})
         ...
     }
 }
