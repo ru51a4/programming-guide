@@ -24,6 +24,28 @@ r-bind.attr
 Не забудем про жизненный цикл и ререндер при действиях пользователя.  
 
 Инициализация фраеймворка выглядит так:  
+```js
+class component_hello extends component {
+    state = {
+        variable: "hello",
+        color: "red",
+        cssColor: () => {
+            return 'color:' + this.state.color + ';'
+        }
+    };
+    body() {
+        return `
+        <div>
+            <span r-bind="variable"></span> 
+            <span r-bind.style="cssColor">world</span>
+        </div>`;
+    }
+    init() {
+        console.log('init')
+    }
+}
+```
+
 ```html
 <html>
 <script src="https://cdn.jsdelivr.net/gh/ru51a4/rrender/dist/rrender.js"></script>
@@ -47,7 +69,7 @@ var components = [
  }
  main();
 ```
-Итак нам нужно получить исходный хтмл (с компонентами):
+## Итак нам нужно получить исходный хтмл (с компонентами):
 
 Пишем имена компонентов прям в хтмл, получаем их с помощью innerHtml и делаем .split("\n")
 
