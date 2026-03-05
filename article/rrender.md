@@ -166,10 +166,11 @@ function runEvent(name, nameEvent, arg) {
     currentComponents.find((item) => {
         return item.name === name;
     }).component[nameEvent](arg);
+    partialCheck(name);
     Render.renderDom();
 }
 ```
-Каждый раз при смене state компонента, нужно запустить ререндер. Render.renderDom().  
+Каждый раз при смене state компонента, нужно запустить ререндер. Render.renderDom(). а так же пометить компонент dirty.    
 ## Жизненный цикл и директивы r-if и r-for:
 
 ## r-if:
@@ -223,18 +224,51 @@ if(!component) {
 ```
 ## vdom diff:
 
-Итак после первого рендера пишем vdom в prevDom, а после второго ререндера у нас есть prevDom и (новый)vdom.
-
-Используя dfs, сравним каждый элемент старого с новым:  
+Итак после первого рендера пишем vdom в prevDom, а после второго ререндера у нас есть prevDom и (новый)vdom.  
+Используя dfs, сравним каждый элемент старого с новым:   
+(html node которые были dirty - проверяем, если html node - не dirty - пропускаем проверку.)  
 ```js
-//render.js - 287 строчка
-let cc1 = this.vdom.find((el) => el.id == elVdom?.childrens[i]?.id);
-let cc2 = this.prevVdom.find((el) => el.id == prevElVdom?.childrens[i]?.id);
-let q1 = { ...cc1, childrens: "", parentComponent: "", parentNode: "", left: '', right: '' };
-let q2 = { ...cc2, childrens: "", parentComponent: "", parentNode: "", left: '', right: '' };
-if (JSON.stringify(q1) !== JSON.stringify(q2)) {
-	//Если элементы не равны, обновим их родителя(да, в vuejs(link github), чуть сложнее, но у нас так)
+//render.js - 303 строчка
+let deepReplace = (_id) => {
+    if (!_id) {
+        return;
+    }
+    let elVdom = this.vdom.find((el) => el.id == _id)
+    let prevElVdom = this.prevVdom.find((el) => el.id == _id)
+
+    let c1 = elVdom?.childrens?.length;
+    let c2 = prevElVdom?.childrens?.length;
+    let childs = [];
+    let c3 = (c1 > c2) ? c1 : c2;
+    for (let i = 0; i <= c3 - 1; i++) {
+        let cc1 = this.vdom.find((el) => el.id == elVdom?.childrens[i]?.id);
+        if (!cc1.dirty) {
+            //
+            childs.push(cc1.id);
+            //
+        } else {
+            let cc2 = this.prevVdom.find((el) => el.id == prevElVdom?.childrens[i]?.id);
+            let q1 = { ...cc1, childrens: "", parentComponent: "", parentNode: "", left: '', right: '' };
+            let q2 = { ...cc2, childrens: "", parentComponent: "", parentNode: "", left: '', right: '' };
+            if (JSON.stringify(q1) !== JSON.stringify(q2)) {
+                if (prevElVdom.id.includes('component')) {
+                    prevElVdom = prevElVdom.parentNode;
+                    elVdom = elVdom.parentNode;
+                }
+                stackUpdateDom.push({ el: elVdom, prev: prevElVdom, type: "create" })
+                return;
+            } {
+                childs.push(cc1.id);
+            }
+        }
+    }
+    childs.forEach((id) => {
+        deepReplace(id);
+    })
+
 }
+deepReplace(this.vdom[0].id);
+
 ```
 [link github](https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff)
   
