@@ -15,7 +15,8 @@ r-click
 r-mouse
 r-bind
 r-bind.attr
-+ жизненный цикл (init/destroy)
++ жизненный цикл (init/destroy)  
++ проверка только dirty component при рендере (this.dirtyCheck())  
 ```
 ---
 
@@ -170,7 +171,7 @@ function runEvent(name, nameEvent, arg) {
     Render.renderDom();
 }
 ```
-Каждый раз при смене state компонента, нужно запустить ререндер. Render.renderDom(). а так же пометить компонент dirty.    
+Каждый раз при смене state компонента, нужно запустить ререндер. Render.renderDom(). а так же пометить компонент dirty. (если меняешь state из метода без r-*events*, используй this.dirtyCheck())  
 ## Жизненный цикл и директивы r-if и r-for:
 
 ## r-if:
