@@ -196,7 +196,7 @@ function model_change(name, { event, key, id }) {
     Render.renderDom(id);
 }
 ```
-При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут (см абзац vdom diff) - фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value.
+При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут (см пункт vdom diff) - фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value.
 
 ## Жизненный цикл и директивы r-if и r-for:
 
