@@ -13,6 +13,8 @@ r-if
 r-for
 r-click
 r-mouse
+r-value(for input)  
+r-model(for input)  
 r-bind
 r-bind.attr
 + жизненный цикл (init/destroy)  
@@ -207,7 +209,26 @@ var diffIndexes = prevArr.map(c => c.index).filter((i) => {
     return !currArr.map(c => c.index).includes(i);
 }); 
 ```
-Потом тоже удаляем/destory()'им компоненты которые удалились в r-for.  
+Потом тоже удаляем/destory()'им компоненты которые удалились в r-for. 
+## r-model (2-way binding)
+```js
+function model_change(name, { event, key, id }) {
+    const value = event.target.value;
+    currentComponents.find((item) => {
+        item = item.hierarchy.split('.');
+        return item[item.length - 1] === name;
+    }).component.state[key] = value;
+    partialCheck(name)
+    Render.renderDom(id);
+}
+--
+<input class="form-control" type="number" r-model="counter"> </span>
+
+let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
+r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
+```
+При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут — фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value.
+
 ## Жизненный цикл:
 Всем активным компонентов даем имена (аналог counter++) (render.js - 169 строчка)
 ```js
@@ -248,6 +269,10 @@ let deepReplace = (_id) => {
             childs.push(cc1.id);
             //
         } else {
+            if (cc1.tag == 'input' && cc2.tag == 'input' && cc2.id == _iid) {
+                childs.push(cc1.id);
+                continue
+            }
             let cc2 = this.prevVdom.find((el) => el.id == prevElVdom?.childrens[i]?.id);
             let q1 = { ...cc1, childrens: "", parentComponent: "", parentNode: "", left: '', right: '' };
             let q2 = { ...cc2, childrens: "", parentComponent: "", parentNode: "", left: '', right: '' };
@@ -272,7 +297,7 @@ deepReplace(this.vdom[0].id);
 
 ```
 [link github](https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff)
-  
+
 Для того что бы сравнить vdom и с реальным dom, на моменте создания vdom (dombuilder.js) для каждого тега посчитаем numChuild (номер элемента в доме), теперь достаточно пройти из корня по numChild, и мы найдем нужный элемент в real dom  
 ```js
 //render.js - 257 строчка
