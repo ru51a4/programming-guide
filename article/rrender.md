@@ -176,6 +176,15 @@ function runEvent(name, nameEvent, arg) {
 Каждый раз при смене state компонента, нужно запустить ререндер. Render.renderDom(). а так же пометить компонент dirty. (если меняешь state из метода без r-*events*, используй this.dirtyCheck())  
 
 ## r-model (2-way binding)
+```html
+<input class="form-control" type="number" r-model="counter">
+```
+
+```js
+let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
+r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
+```
+
 ```js
 function model_change(name, { event, key, id }) {
     const value = event.target.value;
@@ -186,13 +195,6 @@ function model_change(name, { event, key, id }) {
     partialCheck(name)
     Render.renderDom(id);
 }
-```
-```html
-<input class="form-control" type="number" r-model="counter"> </span>
-```
-```js
-let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
-r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
 ```
 При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут (см абзац vdom diff) - фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value.
 
