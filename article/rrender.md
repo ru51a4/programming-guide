@@ -194,7 +194,7 @@ function model_change(name, { event, key, id }) {
 let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
 r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
 ```
-При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут — фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value. смотри абзац vdom diff.
+При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут (см абзац vdom diff) - фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value.
 
 ## Жизненный цикл и директивы r-if и r-for:
 
