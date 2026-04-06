@@ -182,7 +182,7 @@ function runEvent(name, nameEvent, arg) {
 
 ```js
 let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
-r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
+r_model = `value="${getVal(r_model) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_model}', id:'${node.id}'})"`
 ```
 
 ```js
