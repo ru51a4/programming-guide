@@ -174,6 +174,28 @@ function runEvent(name, nameEvent, arg) {
 }
 ```
 Каждый раз при смене state компонента, нужно запустить ререндер. Render.renderDom(). а так же пометить компонент dirty. (если меняешь state из метода без r-*events*, используй this.dirtyCheck())  
+
+## r-model (2-way binding)
+```js
+function model_change(name, { event, key, id }) {
+    const value = event.target.value;
+    currentComponents.find((item) => {
+        item = item.hierarchy.split('.');
+        return item[item.length - 1] === name;
+    }).component.state[key] = value;
+    partialCheck(name)
+    Render.renderDom(id);
+}
+```
+```html
+<input class="form-control" type="number" r-model="counter"> </span>
+```
+```js
+let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
+r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
+```
+При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут — фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value. смотри абзац vdom diff.
+
 ## Жизненный цикл и директивы r-if и r-for:
 
 ## r-if:
@@ -210,26 +232,6 @@ var diffIndexes = prevArr.map(c => c.index).filter((i) => {
 }); 
 ```
 Потом тоже удаляем/destory()'им компоненты которые удалились в r-for. 
-## r-model (2-way binding)
-```js
-function model_change(name, { event, key, id }) {
-    const value = event.target.value;
-    currentComponents.find((item) => {
-        item = item.hierarchy.split('.');
-        return item[item.length - 1] === name;
-    }).component.state[key] = value;
-    partialCheck(name)
-    Render.renderDom(id);
-}
-```
-```html
-<input class="form-control" type="number" r-model="counter"> </span>
-```
-```js
-let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
-r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
-```
-При изменении инпута через r-model (в onkeyup передастся node.id) и при vdom diff мы пропустим этот инпут — фокус с инпута не слетит. Но при изменении state-свойства напрямую вызовется обычный Render.renderDom(), и инпут перерендерится с новым value.
 
 ## Жизненный цикл:
 Всем активным компонентов даем имена (аналог counter++) (render.js - 169 строчка)
