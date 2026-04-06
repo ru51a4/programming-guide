@@ -221,9 +221,11 @@ function model_change(name, { event, key, id }) {
     partialCheck(name)
     Render.renderDom(id);
 }
---
+```
+```html
 <input class="form-control" type="number" r-model="counter"> </span>
-
+```
+```js
 let r_model = node?.attr?.find((c) => c['key'] === 'r-model')?.value[0];
 r_model = `value="${getVal(r_value) ?? ''}" onkeyup="model_change('${component.name}', {event: event, key: '${r_value}', id:'${node.id}'})"`
 ```
