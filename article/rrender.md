@@ -310,6 +310,11 @@ deepReplace(this.vdom[0].id);
 <details>
 <summary>Интегрируй snabbdom тоже</summary>  
 <img width="656" height="915" alt="image" src="https://github.com/user-attachments/assets/f84777fe-c140-48de-96c9-df10b4268306" />
+<details>
+<summary>жопа (не нажимать)</summary>  
+<img width="720" height="251" alt="image" src="https://github.com/user-attachments/assets/77f0648f-33b8-45a0-9e20-93abeb232c27" />
+</details>
+
 
 </details>
   
