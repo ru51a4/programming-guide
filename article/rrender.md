@@ -303,6 +303,9 @@ deepReplace(this.vdom[0].id);
 
 ```
 [link github](https://github.com/sunyanzhe/virtual-dom/tree/master/src/diff)
+  
+<img width="711" height="128" alt="image" src="https://github.com/user-attachments/assets/3b89463d-3b1b-4e7a-a168-a76e383da549" />
+  
 
 Для того что бы сравнить vdom и с реальным dom, на моменте создания vdom (dombuilder.js) для каждого тега посчитаем numChuild (номер элемента в доме), теперь достаточно пройти из корня по numChild, и мы найдем нужный элемент в real dom  
 ```js
