@@ -313,6 +313,7 @@ deepReplace(this.vdom[0].id);
 <details>
 <summary>жопа (не нажимать)</summary>  
 <img width="720" height="251" alt="image" src="https://github.com/user-attachments/assets/77f0648f-33b8-45a0-9e20-93abeb232c27" />  
+    
 ВЕСЬ VDOM + VDOM DIFF в vue2 написал не Evan You, а Simon Friis Vindum(snabbdom)   
 </details>
 
