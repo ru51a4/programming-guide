@@ -310,7 +310,7 @@ return res.join("\n");
 ```
 Все, компиляция готова, осталось реализовать лексеры и научиться считать арифметику. 
 
-args
+args:
 ```js
 class args {
     static lex(str) {
@@ -345,7 +345,7 @@ class args {
 
 module.exports = args;
 ```
-interpalation. 
+interpalation: 
 ```js
 class interpalation {
     static lex(str) {
@@ -372,7 +372,7 @@ class interpalation {
 
 module.exports = interpalation;
 ```
-math. 
+math:  
   
 ```js
 static calc(str) {
