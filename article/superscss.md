@@ -310,6 +310,70 @@ return res.join("\n");
 ```
 Все, компиляция готова, осталось реализовать лексеры и научиться считать арифметику. 
 
+args
+```js
+class args {
+    static lex(str) {
+        //@mixin spacing($padding, $margin) {
+        let res = [];
+        let t = '';
+        let isType = false;
+        for (let i = 0; i <= str.length - 1; i++) {
+            if (str[i] === "@") {
+                isType = true;
+            } else if (isType && str[i] === " ") {
+                isType = false;
+                if (t) {
+                    res.push(t.trim());
+                }
+                t = "";
+            } else if (!isType && (str[i] === "(" || str[i] === ",") || str[i] === ")") {
+                if (t) {
+                    res.push(t.trim());
+                }
+                t = "";
+            } else {
+                t += str[i];
+            }
+        }
+        if (t) {
+            res.push(t.trim());
+        }
+        return res;
+    }
+}
+
+module.exports = args;
+```
+interpalation. 
+```js
+class interpalation {
+    static lex(str) {
+        let res = [];
+        let t = '';
+        for (let i = 0; i <= str.length - 1; i++) {
+            if (str[i] === "#" && str[i + 1] == "{") {
+                res.push(t.trim());
+                t = "";
+                i = i + 1;
+            } else if (str[i] === "}") {
+                res.push(t.trim());
+                t = "";
+            } else {
+                t += str[i];
+            }
+        }
+        if (t) {
+            res.push(t);
+        }
+        return res;
+    }
+}
+
+module.exports = interpalation;
+```
+math. 
+  
 ```js
 static calc(str) {
     let currentUnit = '';
