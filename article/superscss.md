@@ -477,3 +477,5 @@ static calc(str) {
     return start[0] + currentUnit;
 }
 ```
+
+<img width="1402" height="865" alt="image" src="https://github.com/user-attachments/assets/7f413e85-a91a-4665-85a7-db429bb70244" />
